@@ -8,4 +8,4 @@ before_install:
 script:
   - docker-compose exec --env 'PYTHON_EN=test' web python manage.py makemigrations
   - docker-compose exec --env 'PYTHON_EN=test' web python manage.py migrate
-  - docker-compose exec --env 'PYTHON_EN=test' web python manage.test
+  - docker-compose exec --env 'PYTHON_EN=test' web python manage.py test
