@@ -1,0 +1,12 @@
+{% extends "workrecord/base.html" %}
+{% block content %}
+<form action="{% url 'workrecord:habit_day_count' %}" method="POST">
+    {% csrf_token %}
+    {% if habit.id in achieve_list %}
+        <button id="achieve" name="{{ habit.id }}"><i class="bi bi-check-square-fill"></i></button>
+    {% else %}
+        <button id="achieve" name="{{ habit.id }}"><i class="bi bi-check-square"></i></button>
+    {% endif %}
+</form>
+<p name="{{ habit.id }}-count" class="count">{{ habit.achieve_set.count }}</p>
+{% endblock %}

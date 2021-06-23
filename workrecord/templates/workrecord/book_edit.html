@@ -1,0 +1,42 @@
+{% extends "workrecord/base.html" %}
+{% load bootstrap4 %}
+
+{% block title %}書籍の編集{% endblock title %}
+
+{% block content %}
+    <h4 class="mt-4 mb-5 border-bottom">書籍の編集</h4>
+    {% if book_id %}
+    <form action="{% url 'workrecord:book_mod' book_id=book_id %}" method="post">
+    {% else %}
+    <form action="{% url 'workrecord:book_add' %}" method="post">
+    {% endif %}
+      {% csrf_token %}
+      {% bootstrap_form form layout='horizontal' %}
+      <div class="form-group row">
+        <div class="offset-md-3 col-md-9">
+          <button type="submit" class="btn btn-primary">送信</button>
+        </div>
+      </div>
+    </form>
+    <a href="{% url 'workrecord:book_list' %}" class="btn btn-secondary btn-sm">戻る</a>
+{% endblock content %}
+
+{% block extra_js %}
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/timedropper/1.0/timedropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timedropper/1.0/timedropper.min.js">
+    </script>
+    <script>
+        $(function () {
+            // timedropper
+            $("#id_start_time").timeDropper({
+                format: "H:mm",
+                setCurrentTime: false,
+            });
+            $("#id_end_time").timeDropper({
+                format: "H:mm",
+                setCurrentTime: false,
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,13 @@
+FROM python:3.8
+
+ENV PYTHONUNBUFFERED 1
+
+RUN apt-get update && apt-get install -y 
+RUN	apt-get install build-essential
+
+RUN mkdir /habit-record
+
+WORKDIR /habit-record
+COPY requirements.txt /habit-record/
+
+RUN pip install -r /habit-record/requirements.txt
