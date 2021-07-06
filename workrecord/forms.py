@@ -6,11 +6,10 @@ class HabitForm(ModelForm):
     """書籍のフォーム"""
     class Meta:
         model = Habit
-        fields = ('name', 'quantity', 'date','start_time', 'end_time',)
-
+        fields = ('name', 'date',)
 
 class ImpressionForm(ModelForm):
     """感想のフォーム"""
     class Meta:
         model = Impression
-        fields = ('comment', )
+        fields = ('comment', 'quantity', 'date',)

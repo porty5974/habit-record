@@ -6,9 +6,10 @@ volumes:
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/habit-record
+    environment:
+      - 'DATABASE_PASSWORD=postgres'
     ports:
       - "8000:8000"
     tty: true
