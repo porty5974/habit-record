@@ -1,17 +1,18 @@
 {% extends "workrecord/base.html" %}
 {% load bootstrap4 %}
 
-{% block title %}書籍の編集{% endblock title %}
+{% block title %}Task Edit{% endblock title %}
 
 {% block content %}
-    <h4 class="mt-4 mb-5 border-bottom">書籍の編集</h4>
+  <body class="" >
+    <h4 class="h1 display-4 mt-4 mb-5 border-bottom">Task Edit</h4>
     {% if habit_id %}
-    <form action="{% url 'workrecord:habit_mod' habit_id=habit_id %}" method="post">
+    <form class =""  style="color:white" action="{% url 'workrecord:habit_mod' habit_id=habit_id %}" method="post">
     {% else %}
-    <form action="{% url 'workrecord:habit_add' %}" method="post">
+    <form class ="" style="color:white" action="{% url 'workrecord:habit_add' %}" method="post">
     {% endif %}
-      {% csrf_token %}
-      {% bootstrap_form form layout='horizontal' %}
+    {% csrf_token %}
+    {% bootstrap_form form layout='horizontal' %}
       <div class="form-group row">
         <div class="offset-md-3 col-md-9">
           <button type="submit" class="btn btn-primary">送信</button>
@@ -19,5 +20,6 @@
       </div>
     </form>
     <a href="{% url 'workrecord:habit_list' %}" class="btn btn-secondary btn-sm">戻る</a>
+  </body>
 {% endblock content %}
 

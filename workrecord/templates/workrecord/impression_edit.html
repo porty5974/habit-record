@@ -1,14 +1,14 @@
 {% extends "workrecord/base.html" %}
 {% load bootstrap4 %}
 
-{% block title %}感想の編集{% endblock title %}
+{% block title %}Task List{% endblock title %}
 
 {% block content %}
-    <h4 class="mt-4 mb-5 border-bottom">感想の編集</h4>
+    <h4 class="display-5 mt-4 mb-5 border-bottom">Task List</h4>
     {% if impression_id %}
-    <form action="{% url 'workrecord:impression_mod' habit_id=habit_id impression_id=impression_id %}" method="post">
+    <form style="color:white" action="{% url 'workrecord:impression_mod' habit_id=habit_id impression_id=impression_id %}" method="post" >
     {% else %}
-    <form action="{% url 'workrecord:impression_add' habit_id=habit_id %}" method="post">
+    <form style="color:white" action="{% url 'workrecord:impression_add' habit_id=habit_id %}" method="post">
     {% endif %}
       {% csrf_token %}
       {% bootstrap_form form layout='horizontal' %}

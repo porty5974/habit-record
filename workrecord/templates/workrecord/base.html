@@ -5,18 +5,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="{% static 'workrecord/css/bootstrap.min.css' %}">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'workrecord/bootstrap5/css/bootstrap.min.css'%}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 {% block extra_css %}{% endblock %}
 <title>{% block title %}{% endblock %}</title>
 </head>
-<body>
-  <div class="container">
+<body style="background-color:#ABB2B9">
+  <div class="container" >
     {% block content %}
       {{ content }}
     {% endblock %}
   </div>
 <script src="{% static 'workrecord/js/jquery-3.6.0.min.js' %}"></script>
 <script src="{% static 'workrecord/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'workrecord/bootstrap5/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'workrecord/bootstrap5/js/bootstrap.bundle.min.js' %}"></script>
 {% block extra_js %}{% endblock %}
 </body>
 </html>
